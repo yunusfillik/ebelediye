@@ -5,7 +5,7 @@
   "projects": {
     "app": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": { "@schematics/angular:guard": { "implements": ["CanActivate"] } },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
