@@ -1,0 +1,7 @@
+{
+  "name": "ebelediye",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
