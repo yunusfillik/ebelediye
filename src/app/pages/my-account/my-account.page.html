@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back-outline" defaultHref="/my-profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Hesabım</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Profil Resmi Kartı -->
+  <ion-card class="profile-card">
+    <ion-card-header class="profile-card-header">
+      <ion-avatar class="profile-avatar" (click)="selectAvatar()">
+        <img [src]="avatarUrl" alt="Profil Resmi">
+      </ion-avatar>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Bilgi Düzenleme Alanları -->
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Ad Soyad</ion-label>
+        <ion-input [(ngModel)]="name" placeholder="Ad Soyad"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Telefon</ion-label>
+        <ion-input [(ngModel)]="phone" type="tel" placeholder="Telefon"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Adres</ion-label>
+        <ion-input [(ngModel)]="address" placeholder="Adres"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Kaydet Butonu -->
+  <ion-button expand="block" fill="outline" color="primary" (click)="updateProfile()">
+    Kaydet
+  </ion-button>
+
+  <!-- Dosya Seçici -->
+  <input type="file" (change)="onFileSelected($event)" hidden #fileInput>
+</ion-content>

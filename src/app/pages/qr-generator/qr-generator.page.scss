@@ -1,0 +1,35 @@
+ion-content {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
+  
+  .qr-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  qrcode {
+    border-radius: 15px; /* Yuvarlak köşeler */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* İç gölge efekti */
+    background-color: #f8f9fa; /* Arka plan rengini ayarlar */
+    padding: 15px; /* QR kodunun etrafında boşluk bırakır */
+    border: 1px solid #dee2e6; /* İnce kenarlık */
+  }
+  
+  qrcode canvas {
+    width: 100% !important; /* QR kodunun genişliği */
+    height: 100% !important; /* QR kodunun yüksekliği */
+  }
+
+  .countdown-timer {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #dd0f0f;
+  }
+  

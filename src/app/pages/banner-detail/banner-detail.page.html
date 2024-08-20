@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Banner Detay</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closePage()">
+        <ion-icon name="close"></ion-icon> <!-- "X" işareti için ikon -->
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-card>
+    <img src="assets/images/banner/anasayfa-banner-1.jpg" alt="Aliağa Kent Rehberi" />
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Banner Detay</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tincidunt augue. Vivamus vehicula felis sit amet velit cursus, in laoreet eros blandit. Sed condimentum urna et lorem tempus, nec interdum tortor tempus. Ut ultricies eros ut efficitur consequat.</p>
+
+      <p>Quisque interdum sollicitudin nunc, nec cursus ligula cursus eget. Aliquam erat volutpat. Morbi pharetra felis eu risus faucibus, ut commodo sem cursus. Nam sit amet tortor at ante venenatis tincidunt nec eu nulla. Curabitur a velit nec risus fermentum ultrices.</p>
+
+      <p>Mauris vel turpis libero. Aenean vel erat et orci fringilla vehicula vel at purus. Vestibulum laoreet sem et orci cursus, in dictum sapien rhoncus. Ut gravida sollicitudin nisi, ac dapibus metus facilisis id. Cras malesuada libero eu justo feugiat, et efficitur leo convallis.</p>
+    </ion-card-content>
+  </ion-card>

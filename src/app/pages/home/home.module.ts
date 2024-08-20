@@ -7,7 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { register } from 'swiper/element/bundle';
 
+register();
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +18,7 @@ import { HomePage } from './home.page';
     IonicModule,
     HomePageRoutingModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [HomePage]
 })
 export class HomePageModule {}

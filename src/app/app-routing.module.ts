@@ -35,6 +35,30 @@ const routes: Routes = [
   {
     path: 'payment-history',
     loadChildren: () => import('./pages/payment-history/payment-history.module').then( m => m.PaymentHistoryPageModule)
+  },
+  {
+    path: 'my-profile',
+    loadChildren: () => import('./pages/my-profile/my-profile.module').then( m => m.MyProfilePageModule)
+  },
+  {
+    path: 'banner-detail',
+    loadChildren: () => import('./pages/banner-detail/banner-detail.module').then( m => m.BannerDetailPageModule)
+  },
+  {
+    path: 'city-guide',
+    loadChildren: () => import('./pages/city-guide/city-guide.module').then( m => m.CityGuidePageModule)
+  },
+  {
+    path: 'qr-generator',
+    loadChildren: () => import('./pages/qr-generator/qr-generator.module').then( m => m.QrGeneratorPageModule)
+  },
+  {
+    path: 'balance-info',
+    loadChildren: () => import('./pages/balance-info/balance-info.module').then( m => m.BalanceInfoPageModule)
+  },
+  {
+    path: 'my-account',
+    loadChildren: () => import('./pages/my-account/my-account.module').then( m => m.MyAccountPageModule)
   }
 ];
 @NgModule({
