@@ -1,0 +1,21 @@
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --inner-border-width: 0;
+  ion-input {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    --padding-start: 16px !important;
+    --padding-end: 16px !important;
+  }
+  &.password-input{
+    ion-input{
+      --padding-end: 48px !important;
+    }
+    ion-button {
+      z-index: 99999999;
+      position: absolute;
+      right: 8px;
+    }
+  }
+}

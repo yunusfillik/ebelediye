@@ -1,0 +1,11 @@
+ion-button:not([slot='end']) {
+  text-transform: capitalize;
+  margin: 0;
+  height: 56px;
+  --box-shadow: 0 !important;
+  --border-radius: 8px !important;
+  --padding-end: 0 !important;
+  --padding-start: 0 !important;
+  --padding-top: 0 !important;
+  --padding-bottom: 0 !important;
+}

@@ -10,6 +10,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { register } from 'swiper/element/bundle';
 import { QRCodeModule } from 'angularx-qrcode';
+import { MaskitoDirective } from '@maskito/angular';
 
 register();
 
@@ -20,7 +21,8 @@ register();
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     AppRoutingModule,
-    QRCodeModule
+    QRCodeModule,
+    MaskitoDirective,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
