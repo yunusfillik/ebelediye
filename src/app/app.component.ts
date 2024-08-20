@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,5 @@ import { NavController } from '@ionic/angular';
 })
 export class AppComponent {
 
-  constructor(private navCtrl: NavController) {}
-
-  navigateToQRGenerator() {
-    this.navCtrl.navigateForward('/qr-generator');
-  }
+  constructor() {}
 }
