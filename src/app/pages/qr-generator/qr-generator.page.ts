@@ -49,7 +49,7 @@ export class QrGeneratorPage implements OnInit {
   }
 
   closePage() {
-    this.router.navigateByUrl('/home'); // Sayfayı kapat ve ana sayfaya dön
+    this.router.navigateByUrl('/tabs/home'); // Sayfayı kapat ve ana sayfaya dön
   }
 
 }
