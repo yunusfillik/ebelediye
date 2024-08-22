@@ -11,6 +11,9 @@ export class QrGeneratorPage implements OnInit {
   qrCodeValue = 'https://example.comhttps://example.comhttps://example.comhttps://example.com';
   qrCodeSize = 256;
   balance = 255;
+  cardNumber = '1234 5678 **** ****';
+  cardHolderName = 'Mustafa Dağlılar';
+
 
   countdown = 60; // Sayaç başlangıç süresi
   countdownSubscription: Subscription | null = null;

@@ -10,13 +10,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="card-preview">
+    <div class="card">
+      <div class="card-number">{{ cardNumber }}</div>
+      <div class="card-info">
+        <div class="card-name">{{ cardHolderName }}</div>
+        <div class="card-balance">Bakiye: {{ balance | currency:'TRY':'symbol':'1.2-2' }}</div>
+      </div>
+    </div>
+  </div>
+
   <div class="qr-container">
     <div class="qr-wrapper">
       <qrcode [qrdata]="qrCodeValue" [width]="qrCodeSize"></qrcode>
-      <div class="balance-overlay">
-        <ion-icon name="cash-outline"></ion-icon>
-        Bakiye: {{ balance | currency:'TRY':'symbol':'1.2-2' }}
-      </div>
     </div>
     <div class="countdown-timer">
       {{ countdown }} saniye kaldı
