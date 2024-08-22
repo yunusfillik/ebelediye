@@ -1,12 +1,18 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button text="" icon="arrow-back-outline" defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Mağazalar</ion-title>
+    <ion-title *ngIf="!searchActive">Mağazalar</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon *ngIf="!searchActive" name="search-outline" (click)="toggleSearch()"></ion-icon>
+      <ion-icon *ngIf="searchActive" name="close-outline" (click)="toggleSearch()"></ion-icon>
+    </ion-buttons>
+    <ion-searchbar *ngIf="searchActive" placeholder="Mağaza Ara" (ionInput)="onSearchChange($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
+
+
 
 
 <ion-content [fullscreen]="true">

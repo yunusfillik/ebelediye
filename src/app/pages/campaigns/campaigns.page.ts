@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./campaigns.page.scss'],
 })
 export class CampaignsPage implements OnInit {
-
+  searchActive = false;
   constructor(private router : Router) { }
 
   ngOnInit() {
@@ -15,5 +15,17 @@ export class CampaignsPage implements OnInit {
 
   goToCampaignDetail(id : any) : void {
     this.router.navigateByUrl('/campaign-detail/'+id); 
+  }
+
+  toggleSearch() {
+    this.searchActive = !this.searchActive;
+  }
+  
+
+  onSearchChange(event: any) {
+    const query = event.detail.value.toLowerCase();
+    // Arama sorgusunu kullanarak arama işlemini gerçekleştirin.
+    console.log('Arama sorgusu:', query);
+    // Burada, sorguyu kullanarak mağazalarınızı filtreleyebilirsiniz.
   }
 }
