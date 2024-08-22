@@ -8,7 +8,11 @@
       <ion-icon *ngIf="!searchActive" name="search-outline" (click)="toggleSearch()"></ion-icon>
       <ion-icon *ngIf="searchActive" name="close-outline" (click)="toggleSearch()"></ion-icon>
     </ion-buttons>
-    <ion-searchbar *ngIf="searchActive" placeholder="Kampanya Ara" (ionInput)="onSearchChange($event)"></ion-searchbar>
+    <ion-searchbar 
+      *ngIf="searchActive" 
+      placeholder="Kampanya Ara" 
+      (ionInput)="onSearchInput($event)">
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 

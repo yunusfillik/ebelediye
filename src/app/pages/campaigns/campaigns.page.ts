@@ -21,11 +21,19 @@ export class CampaignsPage implements OnInit {
     this.searchActive = !this.searchActive;
   }
   
-
-  onSearchChange(event: any) {
-    const query = event.detail.value.toLowerCase();
-    // Arama sorgusunu kullanarak arama işlemini gerçekleştirin.
+  onSearchInput(event: any) {
+    const query = event.detail.value;
     console.log('Arama sorgusu:', query);
-    // Burada, sorguyu kullanarak mağazalarınızı filtreleyebilirsiniz.
+    if (event.inputType === 'insertText' && event.data === null) {
+      // Enter tuşuna basıldığında
+      console.log('Arama sorgusu:', query);
+      // Burada, query'yi kullanarak arama işlemini gerçekleştirebilirsiniz.
+      this.performSearch(query);
+    }
+  }
+
+  performSearch(query: string) {
+    // Arama işlemini burada gerçekleştirin
+    console.log('Arama yapılıyor:', query);
   }
 }
