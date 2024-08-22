@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="logo-area">
-    <img src="assets/icon/aliagabldlogo.png" height="56" alt="Aliaga">
+    <img src="assets/icon/aliagabldlogo.png" height="56" alt="Aliaga" />
   </div>
   <!-- Segments -->
   <ion-segment [(ngModel)]="segment" class="m-b-16">
@@ -21,17 +21,17 @@
       >
         <ion-item>
           <ion-input
-            formControlName="email"
-            label="E-posta"
+            formControlName="username"
+            label="Kullanıcı adı"
             labelPlacement="floating"
-            (ionFocus)="onFocusInput(loginForm,'email')"
+            (ionFocus)="onFocusInput(loginForm,'username')"
           ></ion-input>
         </ion-item>
         <ion-text
-          *ngIf="loginForm.controls['email'].errors && loginForm.controls['email'].touched"
+          *ngIf="loginForm.controls['username'].errors && loginForm.controls['username'].touched"
           color="danger"
           class="font-xs m-t--8 m-l-16"
-          >Geçerli bir e-posta adresi girmelisiniz.</ion-text
+          >Geçerli bir kullanıcı adı girmelisiniz.</ion-text
         >
         <ion-item class="password-input">
           <ion-input
@@ -128,8 +128,10 @@
       </form>
     </div>
   </div>
-  <div class="logo-area">
-    <span>Güvenli giriş (logo)...</span>
-    <span>Tüm hakları saklıdır...</span>
-  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-text>Aliağa Belediyesi tüm hakları saklıdır.</ion-text>
+  </ion-toolbar>
+</ion-footer>

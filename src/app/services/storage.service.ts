@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage-angular';
 
 export enum StorageKeys {
   'LOGGED_USER' = 'LOGGED_USER',
+  'AUTH_TOKEN' = 'AUTH_TOKEN',
 }
 
 @Injectable({

@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURL: '',
+  authServerURL: 'https://dabid.dabto.com/',
+  authServerClientID: 'belediyemobileapp',
+  authServerScope: 'openid email profile roles skoruba_identity_admin_api'
 };
 
 /*

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MaskPredicate, PhoneMask } from 'src/app/helpers/phoneInput.helper';
+import { AuthService } from 'src/app/services/auth.service';
 import { StorageKeys, StorageService } from 'src/app/services/storage.service';
 import { tcnoValidator } from 'src/app/validators/tcno.validator';
 
@@ -11,7 +12,7 @@ export enum LoginSegmentTypes {
 }
 
 export type InputTypes =
-  | 'email'
+  | 'username'
   | 'password'
   | 'identityNumber'
   | 'phoneNumber';
@@ -35,8 +36,8 @@ export class LoginPage implements OnInit {
   //#endregion
 
   //#region getters
-  get email() {
-    return this.loginForm.get('email')?.value;
+  get username() {
+    return this.loginForm.get('username')?.value;
   }
 
   get password() {
@@ -53,8 +54,8 @@ export class LoginPage implements OnInit {
   //#endregion
 
   //#region setters
-  set email(value: string) {
-    this.loginForm.get('email')?.setValue(value);
+  set username(value: string) {
+    this.loginForm.get('username')?.setValue(value);
   }
 
   set password(value: string) {
@@ -70,7 +71,7 @@ export class LoginPage implements OnInit {
   }
   //#endregion
 
-  //#region helper functions
+  //#region helper functionsƒ
   getLoginSegmentTypes() {
     return LoginSegmentTypes;
   }
@@ -98,18 +99,19 @@ export class LoginPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
     this.registerForm = this.fb.group({
       identityNumber: ['', [Validators.required, tcnoValidator()]],
       phoneNumber: ['', [Validators.required, Validators.minLength(19)]],
     });
-    this.email = 'yunusfillik@gmail.com';
-    this.password = '12345Aa';
+    this.username = 'mobiluser';
+    this.password = '12345Aa...';
   }
 
   ngOnInit(): void {}
@@ -119,22 +121,15 @@ export class LoginPage implements OnInit {
    * Tüm alanları "touched" olarak işaretler
    * Bu sayede error textler ekranda gösterilir.
    */
-  onLoginSubmit() {
+  async onLoginSubmit() {
+    if (!this.loginForm.valid) return this.loginForm.markAllAsTouched();
     this.loginLoading = true;
-    setTimeout(() => {
-      this.loginLoading = false;
-      const userData = { email: this.email, password: this.password };
-      this.storageService.set(
-        StorageKeys.LOGGED_USER,
-        JSON.stringify(userData)
-      );
-      this.router.navigate(['tabs']);
-    }, 1000);
-    if (this.loginForm.valid) {
-      console.log('Form Submitted!', this.loginForm.value, this.email);
-    } else {
-      this.loginForm.markAllAsTouched();
-    }
+    const res = await this.authService.login(this.username, this.password);
+    this.loginLoading = false;
+    if (!res.success) return;
+    const userData = { username: this.username, password: this.password };
+    this.storageService.set(StorageKeys.LOGGED_USER, JSON.stringify(userData));
+    this.router.navigate(['/tabs']);
   }
 
   /**
