@@ -1,5 +1,5 @@
 <ion-tabs>
-  <ion-tab-bar slot="bottom" class="custom-tab-bar">
+  <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home" href="/tabs/home">
       <ion-icon aria-hidden="true" name="home-outline"></ion-icon>
       <ion-label>Ana Sayfa</ion-label>
@@ -10,11 +10,10 @@
       <ion-label>Para Yükle</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
-
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button color="primary" (click)="navigateToQRGenerator()">
-      <ion-icon aria-hidden="true" name="qr-code-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-label class="fab-label"></ion-fab-label>
-  </ion-fab>
 </ion-tabs>
+
+<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab-button color="primary" (click)="navigateToQRGenerator()">
+      <ion-icon aria-hidden="true" name="qr-code-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
