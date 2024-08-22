@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-banner-detail',
@@ -7,14 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./banner-detail.page.scss'],
 })
 export class BannerDetailPage implements OnInit {
-
-  constructor(private router: Router) { }
+  bannerId: any;
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-  }
-
-  closePage() {
-    this.router.navigateByUrl('/tabs/home'); // Sayfayı kapat ve ana sayfaya dön
+    this.bannerId = this.route.snapshot.paramMap.get('id');
+    console.log(this.bannerId);
   }
 
   handleRefresh(event : any) {

@@ -23,6 +23,22 @@ export class HomePage {
     }, 2000);
   }
 
+  goToStoresPage(){
+    this.router.navigate(['/stores']);
+  }
+
+  goToCampaignsPage(){
+    this.router.navigate(['/campaigns']);
+  }
+
+  goToCampaignDetail(id : any) : void {
+    this.router.navigateByUrl('/campaign-detail/'+id); 
+  }
+
+  goToStoreDetail(id : any) : void {
+    this.router.navigateByUrl('/store-detail/'+id); 
+  }
+
   async onSlideClick(id: number) {
     try {
       // Servise request gönder
@@ -30,7 +46,7 @@ export class HomePage {
 
       // Yeni sayfayı aç
       //this.router.navigate(['/my-page'], { state: { data } });
-      this.router.navigate(['/banner-detail']);
+      this.router.navigateByUrl('/banner-detail/'+id); 
     } catch (error) {
       console.error('Error fetching data', error);
     }

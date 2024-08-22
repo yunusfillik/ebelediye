@@ -9,15 +9,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">QR Generator</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content [fullscreen]="true">
   <div class="qr-container">
-    <qrcode [qrdata]="qrCodeValue" [width]="qrCodeSize"></qrcode>
+    <div class="qr-wrapper">
+      <qrcode [qrdata]="qrCodeValue" [width]="qrCodeSize"></qrcode>
+      <div class="balance-overlay">
+        <ion-icon name="cash-outline"></ion-icon>
+        Bakiye: {{ balance | currency:'TRY':'symbol':'1.2-2' }}
+      </div>
+    </div>
     <div class="countdown-timer">
       {{ countdown }} saniye kaldı
     </div>

@@ -1,13 +1,13 @@
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>Bakiye Bilgileri</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="closePage()">
-        <ion-icon name="close"></ion-icon> <!-- "X" işareti için ikon -->
-      </ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back-outline" defaultHref="/my-profile"></ion-back-button>
     </ion-buttons>
+    <ion-title>Bakiye Bilgileri</ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
@@ -32,80 +32,81 @@
       <h3>Harcama Geçmişi</h3>
     </ion-label>
   </ion-item-divider>
-  <!-- Bakiye geçmişi -->
-  <ion-list>
-    <ion-item>
-      <ion-icon slot="start" name="cart"></ion-icon>
-      <ion-label>
-        <h2>Alışveriş</h2>
-        <p>1.234,56 ₺</p>
-        <p>01/08/2024, 14:30</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="cafe"></ion-icon>
-      <ion-label>
-        <h2>Kafe</h2>
-        <p>56,78 ₺</p>
-        <p>02/08/2024, 09:15</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="restaurant"></ion-icon>
-      <ion-label>
-        <h2>Restoran</h2>
-        <p>123,45 ₺</p>
-        <p>03/08/2024, 19:00</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="cart"></ion-icon>
-      <ion-label>
-        <h2>Alışveriş</h2>
-        <p>1.234,56 ₺</p>
-        <p>01/08/2024, 14:30</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="cafe"></ion-icon>
-      <ion-label>
-        <h2>Kafe</h2>
-        <p>56,78 ₺</p>
-        <p>02/08/2024, 09:15</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="restaurant"></ion-icon>
-      <ion-label>
-        <h2>Restoran</h2>
-        <p>123,45 ₺</p>
-        <p>03/08/2024, 19:00</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="cart"></ion-icon>
-      <ion-label>
-        <h2>Alışveriş</h2>
-        <p>1.234,56 ₺</p>
-        <p>01/08/2024, 14:30</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="cafe"></ion-icon>
-      <ion-label>
-        <h2>Kafe</h2>
-        <p>56,78 ₺</p>
-        <p>02/08/2024, 09:15</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon slot="start" name="restaurant"></ion-icon>
-      <ion-label>
-        <h2>Restoran</h2>
-        <p>123,45 ₺</p>
-        <p>03/08/2024, 19:00</p>
-      </ion-label>
-    </ion-item>
-    <!-- Daha fazla item eklenebilir -->
-  </ion-list>
+  <ion-card>
+    <ion-list class="p-8">
+      <ion-item lines="full">
+        <ion-icon slot="start" name="cart"></ion-icon>
+        <ion-label>
+          <h2>Alışveriş</h2>
+          <p>1.234,56 ₺</p>
+          <p>01/08/2024, 14:30</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon slot="start" name="cafe"></ion-icon>
+        <ion-label>
+          <h2>Kafe</h2>
+          <p>56,78 ₺</p>
+          <p>02/08/2024, 09:15</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon slot="start" name="restaurant"></ion-icon>
+        <ion-label>
+          <h2>Restoran</h2>
+          <p>123,45 ₺</p>
+          <p>03/08/2024, 19:00</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon slot="start" name="cart"></ion-icon>
+        <ion-label>
+          <h2>Alışveriş</h2>
+          <p>1.234,56 ₺</p>
+          <p>01/08/2024, 14:30</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon slot="start" name="cafe"></ion-icon>
+        <ion-label>
+          <h2>Kafe</h2>
+          <p>56,78 ₺</p>
+          <p>02/08/2024, 09:15</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon slot="start" name="restaurant"></ion-icon>
+        <ion-label>
+          <h2>Restoran</h2>
+          <p>123,45 ₺</p>
+          <p>03/08/2024, 19:00</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon slot="start" name="cart"></ion-icon>
+        <ion-label>
+          <h2>Alışveriş</h2>
+          <p>1.234,56 ₺</p>
+          <p>01/08/2024, 14:30</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon slot="start" name="cafe"></ion-icon>
+        <ion-label>
+          <h2>Kafe</h2>
+          <p>56,78 ₺</p>
+          <p>02/08/2024, 09:15</p>
+        </ion-label>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-icon slot="start" name="restaurant"></ion-icon>
+        <ion-label>
+          <h2>Restoran</h2>
+          <p>123,45 ₺</p>
+          <p>03/08/2024, 19:00</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
+

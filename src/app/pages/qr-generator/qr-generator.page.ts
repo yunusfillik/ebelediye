@@ -10,6 +10,7 @@ import { Subscription, interval } from 'rxjs';
 export class QrGeneratorPage implements OnInit {
   qrCodeValue = 'https://example.comhttps://example.comhttps://example.comhttps://example.com';
   qrCodeSize = 256;
+  balance = 255;
 
   countdown = 60; // Sayaç başlangıç süresi
   countdownSubscription: Subscription | null = null;

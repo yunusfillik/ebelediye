@@ -85,3 +85,36 @@ swiper-container {
   .h-88 {
     max-height: 88px !important;
   }
+
+  .w-100{
+    width: 100% !important;
+  }
+
+  ion-card-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  
+  ion-card-title {
+    margin: 0;
+  }
+  
+  .view-all-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* İkon ve metne tıklanabilirlik ekler */
+  }
+  
+  .view-all-icon {
+    font-size: 24px; /* İkon boyutunu ayarlar */
+    margin-right: 8px; /* İkon ve metin arasına boşluk bırakır */
+  }
+  
+  .view-all-text {
+    font-size: 16px; /* Metin boyutunu ayarlar */
+  }
+  
+  .custom-header {
+    justify-content: center !important;
+  }

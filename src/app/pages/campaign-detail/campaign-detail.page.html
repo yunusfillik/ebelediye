@@ -2,24 +2,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="" icon="arrow-back-outline" defaultHref="/tabs/home"></ion-back-button>
+      <ion-back-button text="" icon="arrow-back-outline" defaultHref="/campaigns"></ion-back-button>
     </ion-buttons>
-    <ion-title>Kent Rehberi</ion-title>
+    <ion-title>Kampanya Detay</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  
   <ion-card>
-    <img src="assets/images/aliaga.jpg" alt="Aliağa Kent Rehberi" />
+    <img src="assets/images/banner/anasayfa-banner-1.jpg" alt="Aliağa Kent Rehberi" />
   </ion-card>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Aliağa Kent Rehberi</ion-card-title>
+      <ion-card-title>{{campaignId}} ID'li Kampanya Detay</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tincidunt augue. Vivamus vehicula felis sit amet velit cursus, in laoreet eros blandit. Sed condimentum urna et lorem tempus, nec interdum tortor tempus. Ut ultricies eros ut efficitur consequat.</p>
@@ -29,4 +26,3 @@
       <p>Mauris vel turpis libero. Aenean vel erat et orci fringilla vehicula vel at purus. Vestibulum laoreet sem et orci cursus, in dictum sapien rhoncus. Ut gravida sollicitudin nisi, ac dapibus metus facilisis id. Cras malesuada libero eu justo feugiat, et efficitur leo convallis.</p>
     </ion-card-content>
   </ion-card>
-</ion-content>

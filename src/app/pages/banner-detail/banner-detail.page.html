@@ -1,11 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Banner Detay</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="closePage()">
-        <ion-icon name="close"></ion-icon> <!-- "X" işareti için ikon -->
-      </ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back-outline" defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
+    <ion-title>Banner Detay</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,7 +19,7 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Banner Detay</ion-card-title>
+      <ion-card-title>{{bannerId}}Banner Detay</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tincidunt augue. Vivamus vehicula felis sit amet velit cursus, in laoreet eros blandit. Sed condimentum urna et lorem tempus, nec interdum tortor tempus. Ut ultricies eros ut efficitur consequat.</p>

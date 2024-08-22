@@ -41,7 +41,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/my-profile/my-profile.module').then( m => m.MyProfilePageModule)
   },
   {
-    path: 'banner-detail',
+    path: 'banner-detail/:id',
     loadChildren: () => import('./pages/banner-detail/banner-detail.module').then( m => m.BannerDetailPageModule)
   },
   {
@@ -59,6 +59,22 @@ const routes: Routes = [
   {
     path: 'my-account',
     loadChildren: () => import('./pages/my-account/my-account.module').then( m => m.MyAccountPageModule)
+  },
+  {
+    path: 'stores',
+    loadChildren: () => import('./pages/stores/stores.module').then( m => m.StoresPageModule)
+  },
+  {
+    path: 'store-detail/:id',
+    loadChildren: () => import('./pages/store-detail/store-detail.module').then( m => m.StoreDetailPageModule)
+  },
+  {
+    path: 'campaigns',
+    loadChildren: () => import('./pages/campaigns/campaigns.module').then( m => m.CampaignsPageModule)
+  },
+  {
+    path: 'campaign-detail/:id',
+    loadChildren: () => import('./pages/campaign-detail/campaign-detail.module').then( m => m.CampaignDetailPageModule)
   }
 ];
 @NgModule({
