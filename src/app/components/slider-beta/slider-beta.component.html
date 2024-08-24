@@ -1,0 +1,44 @@
+<div class="store-banner">
+  <div class="store-banner-header">
+    <span class="store-header-title">Mağazalar</span>
+    <div class="view-all-container" (click)="goToStoresPage()">
+      <span class="view-all-text">Tümü</span>
+      <ion-icon name="arrow-forward-outline" class="view-all-icon"></ion-icon>
+    </div>
+  </div>
+
+  <swiper-container
+  pagination="true"
+  spaceBetween="16"
+  slidesPerView="auto"
+  centeredSlides="true"
+>
+    <swiper-slide >
+      <div class="banner-container">
+        <img
+          src="assets/images/aliaga.jpg"
+          alt="Banner 1"
+          class="banner-image"
+        />
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="banner-container">
+        <img
+          src="assets/images/aliaga.jpg"
+          alt="Banner 2"
+          class="banner-image"
+        />
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="banner-container">
+        <img
+          src="assets/images/aliaga.jpg"
+          alt="Banner 3"
+          class="banner-image"
+        />
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</div>

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ScanQrPage } from './scan-qr.page';
+//import { ScanQrPage } from './scan-qr.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ScanQrPage
+    //component: ScanQrPage
   }
 ];
 

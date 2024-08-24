@@ -8,7 +8,7 @@
 .card {
   width: 320px;
   height: 200px;
-  background-color: #273341;
+  background-image: url('/assets/images/aliagamutluyasam.png');
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
@@ -16,12 +16,17 @@
   margin-top: 24px;
   display: flex;
   flex-direction: column;
+  background-size: 100% 70%;
+  background-position: center;
+
   justify-content: space-between;
 }
 
 .card-number {
   font-size: 18px;
   letter-spacing: 2px;
+  font-weight: bold;
+  color: black;
 }
 
 .card-info {
@@ -31,14 +36,19 @@
 }
 
 .card-name {
-  font-size: 16px;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
 }
 
 .card-balance {
-  font-size: 14px;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 5px 10px;
-  border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 32px;
+    margin-bottom: 8px;
 }
 
 .qr-container {
@@ -63,6 +73,5 @@ qrcode {
 
 .countdown-timer {
   font-size: 1.2em;
-  color: #273341;
   text-align: center;
 }

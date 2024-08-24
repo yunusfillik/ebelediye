@@ -15,10 +15,15 @@
       <div class="card-number">{{ cardNumber }}</div>
       <div class="card-info">
         <div class="card-name">{{ cardHolderName }}</div>
-        <div class="card-balance">Bakiye: {{ balance | currency:'TRY':'symbol':'1.2-2' }}</div>
       </div>
     </div>
   </div>
+
+  <div class="card-balance">
+    <ion-icon name="card" style="margin-right: 5px;"></ion-icon>
+    {{ balance | number:'1.2-2' }}
+  </div>
+  
 
   <div class="qr-container">
     <div class="qr-wrapper">
