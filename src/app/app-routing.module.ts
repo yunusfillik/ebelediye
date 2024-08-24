@@ -75,6 +75,10 @@ const routes: Routes = [
   {
     path: 'campaign-detail/:id',
     loadChildren: () => import('./pages/campaign-detail/campaign-detail.module').then( m => m.CampaignDetailPageModule)
+  },
+  {
+    path: 'scan-qr',
+    loadChildren: () => import('./pages/scan-qr/scan-qr.module').then( m => m.ScanQrPageModule)
   }
 ];
 @NgModule({
