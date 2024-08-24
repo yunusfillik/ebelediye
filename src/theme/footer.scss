@@ -1,0 +1,12 @@
+ion-footer{
+  box-shadow: none;
+  ion-toolbar{
+    text-align: center;
+    --background: var(--ion-background-color) !important;
+    --border-width: 0 !important;
+    --padding-bottom: 0;
+    --padding-end: 0;
+    --padding-start: 0;
+    --padding-top: 0;
+  }
+}

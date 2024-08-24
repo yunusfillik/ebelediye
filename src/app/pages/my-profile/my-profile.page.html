@@ -1,18 +1,22 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="" icon="arrow-back-outline" defaultHref="/tabs/home"></ion-back-button>
+      <ion-back-button
+        text=""
+        icon="arrow-back-outline"
+        defaultHref="/tabs/home"
+        color="medium"
+      ></ion-back-button>
     </ion-buttons>
     <ion-title>Profilim</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Profil Kartı -->
-  <ion-card class="profile-card" (click)="goMyProfile()">
-    <ion-item lines="none" class="p-8">
+  <ion-card (click)="goMyProfile()">
+    <ion-item lines="none" [button]="true">
       <ion-avatar slot="start">
-        <img [src]="avatarUrl" alt="Profil Resmi">
+        <img [src]="avatarUrl" alt="Profil Resmi" />
       </ion-avatar>
       <ion-label>
         <h2>{{ name }}</h2>
@@ -20,23 +24,27 @@
       </ion-label>
     </ion-item>
   </ion-card>
-
-  <!-- Profil Seçenekleri Listesi -->
-  <ion-list class="profile-details" lines="full">
-    <ion-item>
+  <ion-list [inset]="true">
+    <ion-item [button]="true">
       <ion-icon name="settings-outline" slot="start"></ion-icon>
       <ion-label>Ayarlar</ion-label>
     </ion-item>
-
-    <ion-item (click)="balanceInfo()">
+    <ion-item [button]="true" (click)="balanceInfo()">
       <ion-icon name="cash-outline" slot="start"></ion-icon>
       <ion-label>Bakiye Geçmişi</ion-label>
     </ion-item>
   </ion-list>
-
-  <!-- Çıkış Yap Butonu -->
-  <ion-button expand="block" fill="outline" color="primary" (click)="signOut()">
-    Çıkış Yap
-  </ion-button>
-
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar class="p-16">
+    <ion-button
+      class="h-32"
+      expand="block"
+      color="light"
+      (click)="signOut()"
+    >
+      Çıkış Yap
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

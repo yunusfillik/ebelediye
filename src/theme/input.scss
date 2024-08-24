@@ -1,6 +1,4 @@
-ion-item {
-  --padding-start: 0;
-  --inner-padding-end: 0;
+ion-item:has(ion-input) {
   --inner-border-width: 0;
   ion-input {
     border: 1px solid var(--border-color);

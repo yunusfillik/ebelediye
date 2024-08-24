@@ -9,3 +9,9 @@ ion-button:not([slot='end']) {
   --padding-top: 0 !important;
   --padding-bottom: 0 !important;
 }
+
+ion-button{
+  &.h-32{
+    height: 32px !important;
+  }
+}
