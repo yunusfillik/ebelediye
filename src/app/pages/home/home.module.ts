@@ -10,14 +10,16 @@ import { HomePage } from './home.page';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { register } from 'swiper/element/bundle';
 import { SliderBetaComponent } from 'src/app/components/slider-beta/slider-beta.component';
+import { SharedModule } from "../../components/shared.module";
 register();
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
-  ],
+    HomePageRoutingModule,
+    SharedModule
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [HomePage, SliderBetaComponent]
 })

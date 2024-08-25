@@ -14,13 +14,13 @@ export class CampaignsPage implements OnInit {
   }
 
   goToCampaignDetail(id : any) : void {
-    this.router.navigateByUrl('/campaign-detail/'+id); 
+    this.router.navigateByUrl('/tabs/campaign-detail/'+id);
   }
 
   toggleSearch() {
     this.searchActive = !this.searchActive;
   }
-  
+
   onSearchInput(event: any) {
     const query = event.detail.value;
     console.log('Arama sorgusu:', query);

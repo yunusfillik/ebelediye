@@ -7,11 +7,13 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
 import { SharedModule } from '../components/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
+    RouterModule,
     FormsModule,
     TabsPageRoutingModule,
     SharedModule

@@ -8,6 +8,7 @@ import {
 import { firstValueFrom, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { StorageKeys, StorageService } from './storage.service';
 
 export interface ServerResponse {
   access_token: string;
@@ -30,7 +31,10 @@ export class AuthService {
   private token: string;
   private logedUsername: string;
   private logedPassword: string;
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private storageService: StorageService
+  ) {}
 
   getToken(): string {
     return this.token;
@@ -62,11 +66,32 @@ export class AuthService {
         .pipe(catchError((err: HttpErrorResponse) => this.handleError(err)))
     );
     if (res.access_token) {
-      this.token = res.access_token;
-      this.logedUsername = username;
-      this.logedPassword = password;
+      const data = {
+        token: res.access_token,
+        username: username,
+        password: password,
+      };
+      this.setTokenAndStorage(data);
     }
     return this.handleSuccess<LoginResponse>(res);
+  }
+
+  private setTokenAndStorage(data: {
+    token: string;
+    username: string;
+    password: string;
+  }) {
+    this.token = data.token;
+    this.logedUsername = data.username;
+    this.logedPassword = data.password;
+    const userData = { username: data.username, password: data.password };
+    this.storageService.set(StorageKeys.LOGGED_USER, JSON.stringify(userData));
+    this.storageService.set(StorageKeys.AUTH_TOKEN, this.token);
+  }
+
+  clearTokenAndStorage() {
+    this.storageService.clear();
+    this.token = '';
   }
 
   private handleSuccess<T>(data: any) {

@@ -1,7 +1,13 @@
-ion-button:not([slot='end']) {
+ion-buttons[slot="start"]{
+  margin-left: 12px !important;
+}
+ion-buttons[slot="end"]{
+  margin-right: 6px !important;
+}
+
+ion-button:not([slot="end"]) {
   text-transform: capitalize;
   margin: 0;
-  height: 56px;
   --box-shadow: 0 !important;
   --border-radius: 8px !important;
   --padding-end: 0 !important;
@@ -10,8 +16,15 @@ ion-button:not([slot='end']) {
   --padding-bottom: 0 !important;
 }
 
-ion-button{
-  &.h-32{
+ion-button[type="submit"] {
+  height: 56px !important;
+}
+
+ion-button {
+  &.h-32 {
     height: 32px !important;
+  }
+  &.h-56 {
+    height: 56px !important;
   }
 }

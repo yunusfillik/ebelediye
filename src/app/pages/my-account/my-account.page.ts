@@ -22,7 +22,7 @@ export class MyAccountPage implements OnInit {
   ngOnInit() {
   }
 
- 
+
 
   selectAvatar() {
     if (this.fileInput) {

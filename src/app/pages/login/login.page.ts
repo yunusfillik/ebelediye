@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MaskPredicate, PhoneMask } from 'src/app/helpers/phoneInput.helper';
 import { AuthService } from 'src/app/services/auth.service';
-import { StorageKeys, StorageService } from 'src/app/services/storage.service';
 import { tcnoValidator } from 'src/app/validators/tcno.validator';
 
 export enum LoginSegmentTypes {
@@ -98,7 +97,6 @@ export class LoginPage implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private storageService: StorageService,
     private router: Router,
     private authService: AuthService
   ) {
@@ -127,8 +125,6 @@ export class LoginPage implements OnInit {
     const res = await this.authService.login(this.username, this.password);
     this.loginLoading = false;
     if (!res.success) return;
-    const userData = { username: this.username, password: this.password };
-    this.storageService.set(StorageKeys.LOGGED_USER, JSON.stringify(userData));
     this.router.navigate(['/tabs']);
   }
 

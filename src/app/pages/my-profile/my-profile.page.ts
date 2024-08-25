@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -17,7 +18,7 @@ export class MyProfilePage implements OnInit {
   phone: string = "+90 555 555 5555";
   address: string = "İzmir, Türkiye";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -64,12 +65,7 @@ export class MyProfilePage implements OnInit {
   }
 
   async signOut() {
-    // Kullanıcı bilgilerini sıfırlama
-    //await this.storage.clear(); // Tüm depolanan verileri temizler
-    // Eğer localStorage kullanacaksak:
-    // localStorage.clear();
-
-    // Giriş sayfasına yönlendirme
+    this.authService.clearTokenAndStorage();
     this.router.navigate(['/login']);
   }
 

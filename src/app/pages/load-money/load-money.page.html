@@ -1,15 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Para Yükle</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-tabs-header></app-tabs-header>
 
 <ion-content>
   <ion-card>
     <ion-card-header>
       <ion-card-title>Ödeme Bilgileri</ion-card-title>
     </ion-card-header>
-    
+
     <ion-card-content>
       <form (ngSubmit)="submitPayment()" #paymentForm="ngForm">
         <ion-item>
@@ -17,7 +13,7 @@
           <ion-input type="text" [(ngModel)]="paymentData.cardHolder" name="cardHolder" required
                      (input)="updateCardPreview()"></ion-input>
         </ion-item>
-        
+
         <ion-item>
           <ion-label position="floating">Kart Numarası</ion-label>
           <ion-input type="text" [(ngModel)]="paymentData.cardNumber" name="cardNumber" required
