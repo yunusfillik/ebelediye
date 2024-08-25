@@ -13,8 +13,17 @@ export class ToastHelper {
       message: message,
       duration: duration,
       color: 'dark',
-      position: 'bottom',
-      cssClass: 'toast-custom'
+      position: 'bottom'
+    });
+    await toast.present();
+  }
+
+  async presentSuccessToast(message: string, duration: number = 2000) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: duration,
+      color: 'success',
+      position: 'bottom'
     });
     await toast.present();
   }
