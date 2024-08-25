@@ -21,8 +21,9 @@ ion-button[type="submit"] {
 }
 
 ion-button {
-  &.h-32 {
-    height: 32px !important;
+  &.h-48 {
+    height: 48px !important;
+    min-height: 48px !important;
   }
   &.h-56 {
     height: 56px !important;
