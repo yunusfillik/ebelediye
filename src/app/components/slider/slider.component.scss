@@ -2,8 +2,7 @@
   display: block;
 }
 
-swiper-container:has(.slide-beta),
-swiper-container:has(.slide-gama) {
+swiper-container:has(.slide-beta) {
   padding: 0 16px;
   padding-bottom: 16px;
   &::part(container) {

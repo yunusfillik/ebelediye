@@ -15,9 +15,9 @@ import Swiper from 'swiper';
 register();
 
 export interface AppSliderConfig {
-  slidesPerView: number,
-  pagination: boolean,
-  freeMode: boolean
+  slidesPerView?: number,
+  pagination?: boolean,
+  freeMode?: boolean
 }
 
 @Component({
@@ -26,8 +26,9 @@ export interface AppSliderConfig {
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements AfterContentInit {
-  @Input() type: 'alpha' | 'beta' | 'gama' = 'alpha';
+  @Input() type: 'alpha' | 'beta' = 'alpha';
   @Input() header: string;
+  @Input() sliderOptions: AppSliderConfig;
   @Output() allButtonClick = new EventEmitter<any>();
   @ViewChild('swiper', { static: false }) swiper!: Swiper;
   @ContentChildren(SliderOptionComponent) options!: QueryList<SliderOptionComponent>;
@@ -56,19 +57,11 @@ export class SliderComponent implements AfterContentInit {
     switch (this.type) {
       case 'beta':
         const betaConfig: AppSliderConfig = {
-          slidesPerView: 1.015,
+          slidesPerView: this.sliderOptions?.slidesPerView ?? 1.015,
           pagination: true,
           freeMode: true
         }
         this.config = betaConfig;
-        break;
-      case 'gama':
-        const gamaConfig: AppSliderConfig = {
-          slidesPerView: 1.5,
-          pagination: true,
-          freeMode: true
-        }
-        this.config = gamaConfig;
         break;
     }
   }

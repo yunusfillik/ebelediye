@@ -10,7 +10,10 @@
   <app-slider class="m-b-16" [type]="'beta'" [header]="'Kampanyalar'" (allButtonClick)="goToCampaignsPage()">
     <app-slider-option *ngFor="let item of banners" [data]="item" (onClick)="onSliderClick(item)"></app-slider-option>
   </app-slider>
-  <app-slider class="m-b-16" [type]="'gama'" [header]="'Mağazalar'" (allButtonClick)="goToCampaignsPage()" >
+  <app-slider class="m-b-16" [type]="'beta'" [sliderOptions]="{slidesPerView: 1.5}" [header]="'Mağazalar'" (allButtonClick)="goToCampaignsPage()" >
+    <app-slider-option *ngFor="let item of banners" [data]="item" (onClick)="onSliderClick(item)"></app-slider-option>
+  </app-slider>
+  <app-slider class="m-b-24" [type]="'beta'" [sliderOptions]="{slidesPerView: 2.5}" [header]="'Öne Çıkanlar'" (allButtonClick)="goToCampaignsPage()" >
     <app-slider-option *ngFor="let item of banners" [data]="item" (onClick)="onSliderClick(item)"></app-slider-option>
   </app-slider>
 
