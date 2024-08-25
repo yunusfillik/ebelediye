@@ -8,18 +8,16 @@ import { Router } from '@angular/router';
 })
 export class StoresPage implements OnInit {
   searchActive = false;
-  constructor(private router : Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  
   toggleSearch() {
     this.searchActive = !this.searchActive;
   }
-  
-  goToStoreDetail(id : any) : void {
-    this.router.navigateByUrl('/store-detail/'+id); 
+
+  goToStoreDetail(id: any): void {
+    this.router.navigateByUrl('/store-detail/' + id);
   }
 
   onSearchChange(event: any) {

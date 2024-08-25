@@ -1,120 +1,124 @@
 swiper-container {
-    --swiper-pagination-bullet-inactive-color: var(--ion-text-color-step-800, #cccccc);
-    --swiper-pagination-color: var(--ion-color-primary, #0054e9);
-    --swiper-pagination-progressbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.25);
-    --swiper-scrollbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);
-    --swiper-scrollbar-drag-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.5);
-  }
-
-  swiper-slide {
-    display: flex;
-    position: relative;
-    min-height: 33.33vh;
-    flex-direction: column;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-
-    font-size: 18px;
-
-    text-align: center;
-    box-sizing: border-box;
-  }
-
-  swiper-slide img {
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 100%;
-  }
-
-.header-logo{
-    height: 40px;
-    margin-left: 16px;
+  --swiper-pagination-bullet-inactive-color: var(
+    --ion-text-color-step-800,
+    #cccccc
+  );
+  --swiper-pagination-color: var(--ion-color-primary, #0054e9);
+  --swiper-pagination-progressbar-bg-color: rgba(
+    var(--ion-text-color-rgb, 0, 0, 0),
+    0.25
+  );
+  --swiper-scrollbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);
+  --swiper-scrollbar-drag-bg-color: rgba(
+    var(--ion-text-color-rgb, 0, 0, 0),
+    0.5
+  );
 }
+
+swiper-slide {
+  display: flex;
+  position: relative;
+  min-height: 33.33vh;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 18px;
+
+  text-align: center;
+  box-sizing: border-box;
+}
+
+swiper-slide img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
 .banner-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-  .banner-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .additional-image {
-    position: absolute;
-    bottom: 10px; /* Sol alttan uzaklık */
-    left: 10px; /* Sol taraftan uzaklık */
-    width: 50px; /* İsteğe bağlı: resmin genişliği */
-    height: auto; /* Yükseklik otomatik olarak ayarlanır */
-    object-fit: contain;
-  }
-  .stores-swiper {
-    width: 100%;
-    height: auto; /* Mağaza kartlarının yüksekliğine göre ayarlanır */
-  }
+.additional-image {
+  position: absolute;
+  bottom: 10px; /* Sol alttan uzaklık */
+  left: 10px; /* Sol taraftan uzaklık */
+  width: 50px; /* İsteğe bağlı: resmin genişliği */
+  height: auto; /* Yükseklik otomatik olarak ayarlanır */
+  object-fit: contain;
+}
+.stores-swiper {
+  width: 100%;
+  height: auto; /* Mağaza kartlarının yüksekliğine göre ayarlanır */
+}
 
-  .stores-swiper swiper-slide {
-    width: auto; /* Mağaza kartlarının genişliği otomatik ayarlanır */
-  }
+.stores-swiper swiper-slide {
+  width: auto; /* Mağaza kartlarının genişliği otomatik ayarlanır */
+}
 
-  ion-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
+ion-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.h-160 {
+  max-height: 160px !important;
+}
 
-  }
-  .h-160{
-    max-height: 160px !important;
-  }
+ion-card-title {
+  font-size: 1.2em; /* Kart başlığı yazı boyutu */
+}
 
-  ion-card-title {
-    font-size: 1.2em; /* Kart başlığı yazı boyutu */
-  }
+ion-card-content {
+  font-size: 0.9em; /* Kart içeriği yazı boyutu */
+}
 
-  ion-card-content {
-    font-size: 0.9em; /* Kart içeriği yazı boyutu */
-  }
+.h-88 {
+  max-height: 88px !important;
+}
 
-  .h-88 {
-    max-height: 88px !important;
-  }
+.w-100 {
+  width: 100% !important;
+}
 
-  .w-100{
-    width: 100% !important;
-  }
+ion-card-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
 
-  ion-card-header {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-  }
-  
-  ion-card-title {
-    margin: 0;
-  }
-  
-  .view-all-container {
-    display: flex;
-    align-items: center;
-    cursor: pointer; /* İkon ve metne tıklanabilirlik ekler */
-  }
-  
-  .view-all-icon {
-    font-size: 24px; /* İkon boyutunu ayarlar */
-    margin-right: 8px; /* İkon ve metin arasına boşluk bırakır */
-  }
-  
-  .view-all-text {
-    font-size: 16px; /* Metin boyutunu ayarlar */
-  }
-  
-  .custom-header {
-    justify-content: center !important;
-  }
+ion-card-title {
+  margin: 0;
+}
+
+.view-all-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* İkon ve metne tıklanabilirlik ekler */
+}
+
+.view-all-icon {
+  font-size: 24px; /* İkon boyutunu ayarlar */
+  margin-right: 8px; /* İkon ve metin arasına boşluk bırakır */
+}
+
+.view-all-text {
+  font-size: 16px; /* Metin boyutunu ayarlar */
+}
+
+.custom-header {
+  justify-content: center !important;
+}

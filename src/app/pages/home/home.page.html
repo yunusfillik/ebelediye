@@ -1,19 +1,6 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <img
-      src="assets/icon/aliagabldlogo.png"
-      alt="Aliaga Bld"
-      class="header-logo"
-    />
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/my-profile']">
-        <ion-icon slot="icon-only" name="person-circle-outline" color="medium"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-tabs-header></app-tabs-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -78,13 +65,9 @@
       >
         <swiper-slide>
           <ion-card class="w-100" (click)="goToStoreDetail(5)">
-            <img
-              src="assets/images/aliaga2.jpg"
-              class="h-160"
-              alt="Mağaza 1"
-            />
+            <img src="assets/images/aliaga2.jpg" class="h-160" alt="Mağaza 1" />
             <ion-card-header class="custom-header">
-              <ion-card-title >Mağaza 1</ion-card-title>
+              <ion-card-title>Mağaza 1</ion-card-title>
             </ion-card-header>
             <ion-card-content> Mağaza 1 açıklaması burada. </ion-card-content>
           </ion-card>
@@ -119,66 +102,62 @@
     </ion-card-content>
   </ion-card>
 
-
-
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Kampanyalar</ion-card-title>
-    <div class="view-all-container" (click)="goToCampaignsPage()">
-      <span class="view-all-text">Tümü</span>
-      <ion-icon name="arrow-forward-outline" class="view-all-icon"></ion-icon>
-    </div>
-  </ion-card-header>
-  <ion-card-content>
-    <swiper-container
-      slidesPerView="auto"
-      spaceBetween="10"
-      freeMode="true"
-      pagination="true"
-      class="stores-swiper"
-    >
-      <swiper-slide>
-        <ion-card class="w-100" (click)="goToCampaignDetail(3)">
-          <img
-            src="assets/images/aliaga4.jpg"
-            class="h-160"
-            alt="Kampanya 1"
-          />
-          <ion-card-header class="custom-header">
-            <ion-card-title>Kampanya 1</ion-card-title>
-          </ion-card-header>
-          <ion-card-content> Kampanya 1 açıklaması burada. </ion-card-content>
-        </ion-card>
-      </swiper-slide>
-      <swiper-slide>
-        <ion-card class="w-100" (click)="goToCampaignDetail(5)">
-          <img
-            src="assets/images/aliaga5.jpg"
-            class="h-160"
-            alt="Kampanya 2"
-          />
-          <ion-card-header class="custom-header">
-            <ion-card-title>Kampanya 2</ion-card-title>
-          </ion-card-header>
-          <ion-card-content> Kampanya 2 açıklaması burada. </ion-card-content>
-        </ion-card>
-      </swiper-slide>
-      <swiper-slide>
-        <ion-card class="w-100">
-          <img
-            src="assets/images/alg-mutlu-yasa.png"
-            class="h-160"
-            alt="Kampanya 3"
-          />
-          <ion-card-header class="custom-header">
-            <ion-card-title>Kampanya 3</ion-card-title>
-          </ion-card-header>
-          <ion-card-content> Kampanya 3 açıklaması burada. </ion-card-content>
-        </ion-card>
-      </swiper-slide>
-    </swiper-container>
-  </ion-card-content>
-</ion-card>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Kampanyalar</ion-card-title>
+      <div class="view-all-container" (click)="goToCampaignsPage()">
+        <span class="view-all-text">Tümü</span>
+        <ion-icon name="arrow-forward-outline" class="view-all-icon"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <swiper-container
+        slidesPerView="auto"
+        spaceBetween="10"
+        freeMode="true"
+        pagination="true"
+        class="stores-swiper"
+      >
+        <swiper-slide>
+          <ion-card class="w-100" (click)="goToCampaignDetail(3)">
+            <img
+              src="assets/images/aliaga4.jpg"
+              class="h-160"
+              alt="Kampanya 1"
+            />
+            <ion-card-header class="custom-header">
+              <ion-card-title>Kampanya 1</ion-card-title>
+            </ion-card-header>
+            <ion-card-content> Kampanya 1 açıklaması burada. </ion-card-content>
+          </ion-card>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-card class="w-100" (click)="goToCampaignDetail(5)">
+            <img
+              src="assets/images/aliaga5.jpg"
+              class="h-160"
+              alt="Kampanya 2"
+            />
+            <ion-card-header class="custom-header">
+              <ion-card-title>Kampanya 2</ion-card-title>
+            </ion-card-header>
+            <ion-card-content> Kampanya 2 açıklaması burada. </ion-card-content>
+          </ion-card>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-card class="w-100">
+            <img
+              src="assets/images/alg-mutlu-yasa.png"
+              class="h-160"
+              alt="Kampanya 3"
+            />
+            <ion-card-header class="custom-header">
+              <ion-card-title>Kampanya 3</ion-card-title>
+            </ion-card-header>
+            <ion-card-content> Kampanya 3 açıklaması burada. </ion-card-content>
+          </ion-card>
+        </swiper-slide>
+      </swiper-container>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
-

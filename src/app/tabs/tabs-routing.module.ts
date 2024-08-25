@@ -12,8 +12,8 @@ const routes: Routes = [
         loadChildren: () => import('../pages/home/home.module').then(m => m.HomePageModule)
       },
       {
-        path: 'qr',
-        loadChildren: () => import('../pages/qr/qr.module').then(m => m.QrPageModule)
+        path: 'qr-generator',
+        loadChildren: () => import('../pages/qr-generator/qr-generator.module').then( m => m.QrGeneratorPageModule)
       },
       {
         path: 'load-money',

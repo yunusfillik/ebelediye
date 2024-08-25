@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -7,9 +6,5 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['tabs.page.scss'],
 })
 export class TabsPage {
-  constructor(private navCtrl: NavController) {}
-
-  navigateToQRGenerator() {
-    this.navCtrl.navigateForward('/qr-generator');
-  }
+  constructor() {}
 }
