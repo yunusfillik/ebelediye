@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export function tcnoValidator(): ValidatorFn {
+export function TCnoValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const tcNo = control.value as string;
 

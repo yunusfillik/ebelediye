@@ -1,31 +1,9 @@
-/* my-account.page.scss veya my-account.page.css */
-
-.profile-card {
-    --padding-start: 0;
-    --padding-end: 0;
-    --padding-top: 0;
-    --padding-bottom: 0;
-  }
-  
-  .profile-card-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px; /* Kartın yüksekliği */
-  }
-  
-  .profile-avatar {
-    width: 120px; /* Resmin genişliği */
-    height: 120px; /* Resmin yüksekliği */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; /* Resme tıklanabilir olduğunu gösterir */
-  }
-  
-  .profile-avatar img {
+ion-avatar {
+  width: 120px;
+  height: 120px;
+  img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Resmin kart içinde uygun şekilde görünmesini sağlar */
+    object-fit: cover;
   }
-  
+}

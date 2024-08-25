@@ -7,46 +7,112 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <!-- Profil Resmi Kartı -->
-  <ion-card class="profile-card">
-    <ion-card-header class="profile-card-header">
-      <ion-avatar class="profile-avatar" (click)="selectAvatar()">
-        <img [src]="avatarUrl" alt="Profil Resmi">
+  <div class="m-b-16">
+    <ion-card-content class="flex-center">
+      <ion-avatar (click)="selectAvatar()">
+        <img [src]="avatarUrl" alt="Profil Resmi" />
       </ion-avatar>
-    </ion-card-header>
-  </ion-card>
-
-  <!-- Bilgi Düzenleme Alanları -->
-  <ion-card>
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="stacked">Ad Soyad</ion-label>
-        <ion-input [(ngModel)]="name" placeholder="Ad Soyad"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="stacked">Email</ion-label>
-        <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="stacked">Telefon</ion-label>
-        <ion-input [(ngModel)]="phone" type="tel" placeholder="Telefon"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="stacked">Adres</ion-label>
-        <ion-input [(ngModel)]="address" placeholder="Adres"></ion-input>
-      </ion-item>
     </ion-card-content>
-  </ion-card>
+  </div>
 
-  <!-- Kaydet Butonu -->
-  <ion-button expand="block" fill="outline" color="primary" (click)="updateProfile()">
-    Kaydet
-  </ion-button>
+  <ion-segment [(ngModel)]="segment" class="m-b-16">
+    <ion-segment-button value="{{getMyAccountSegmentTypes().general}}">
+      Genel Bilgiler
+    </ion-segment-button>
+    <ion-segment-button value="{{getMyAccountSegmentTypes().password}}">
+      Şifre İşlemleri
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="segment">
+    <!-- Genel Bilgiler -->
+    <div *ngSwitchCase="getMyAccountSegmentTypes().general">
+      <form [formGroup]="generalForm" (ngSubmit)="onGeneralFormSubmit()" class="flex-col gap-16">
+        <ion-item>
+          <ion-input formControlName="username" label="Kullanıcı adı" labelPlacement="floating"
+            (ionFocus)="onFocusInput(generalForm,'username')"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="generalForm.controls['username'].errors && generalForm.controls['username'].touched"
+          color="danger" class="font-xs m-t--8 m-l-16">Geçerli bir kullanıcı adı girmelisiniz.</ion-text>
+        <ion-item>
+          <ion-input formControlName="identityNumber" label="TC kimlik numarası" labelPlacement="floating" type="tel"
+            maxlength="11" (ionFocus)="onFocusInput(generalForm,'identityNumber')"></ion-input>
+        </ion-item>
+        <ion-text
+          *ngIf="generalForm.controls['identityNumber'].errors && generalForm.controls['identityNumber'].touched"
+          color="danger" class="font-xs m-t--8 m-l-16">Geçerli bir TC kimlik numarası girmelisiniz.</ion-text>
+        <ion-item>
+          <ion-input formControlName="email" label="E-posta" labelPlacement="floating"
+            (ionFocus)="onFocusInput(generalForm,'email')"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="generalForm.controls['email'].errors && generalForm.controls['email'].touched" color="danger"
+          class="font-xs m-t--8 m-l-16">Geçerli bir e-posta girmelisiniz.</ion-text>
+        <ion-item>
+          <ion-input formControlName="phoneNumber" label="Telefon numarası" labelPlacement="floating" type="tel"
+            placeholder="+90 (5xx)" [maskito]="phoneMask" [maskitoElement]="maskPredicate"
+            (ionFocus)="onFocusInput(generalForm,'phoneNumber')"
+            (ionBlur)="onBlurInput(generalForm,'phoneNumber')"></ion-input>
+        </ion-item>
+        <ion-text *ngIf="generalForm.controls['phoneNumber'].errors && generalForm.controls['phoneNumber'].touched"
+          color="danger" class="font-xs m-t--8 m-l-16">Geçerli bir telefon numarası girmelisiniz.</ion-text>
+        <ion-button expand="block" type="submit" [disabled]="generalFormLoading">
+          <ion-spinner *ngIf="generalFormLoading" name="crescent"></ion-spinner>
+          <ion-text *ngIf="!generalFormLoading">Kaydet</ion-text>
+        </ion-button>
+      </form>
+    </div>
+    <!-- Şifre İşlemleri -->
+    <div *ngSwitchCase="getMyAccountSegmentTypes().password">
+      <form [formGroup]="passwordForm" (ngSubmit)="onPasswordFormSubmit()" class="flex-col gap-16">
+        <!-- oldPassword -->
+        <ion-item class="password-input">
+          <ion-input formControlName="oldPassword" label="Eski Şifre" labelPlacement="floating"
+            [type]="showOldPassword ? 'text' : 'password'" (ionFocus)="onFocusInput(passwordForm,'oldPassword')">
+          </ion-input>
+          <ion-button class="btn" fill="clear" slot="end" aria-label="Show/hide"
+            (click)="togglePasswordIcon('oldPassword')">
+            <ion-icon slot="icon-only" [name]="showOldPassword ? 'eye-off' : 'eye'" aria-hidden="true"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-text *ngIf="passwordForm.controls['oldPassword'].errors && passwordForm.controls['oldPassword'].touched"
+          color="danger" class="font-xs m-t--8 m-l-16">Şifre en az 6 karakterden oluşmalıdır.</ion-text>
+        <!-- newPassword -->
+        <ion-item class="password-input">
+          <ion-input formControlName="newPassword" label="Yeni Şifre" labelPlacement="floating"
+            [type]="showNewPassword ? 'text' : 'password'" (ionFocus)="onFocusInput(passwordForm,'newPassword')"
+            (ionBlur)="onBlurInput(passwordForm,'newPassword')">
+          </ion-input>
+          <ion-button class="btn" fill="clear" slot="end" aria-label="Show/hide"
+            (click)="togglePasswordIcon('newPassword')">
+            <ion-icon slot="icon-only" [name]="showNewPassword ? 'eye-off' : 'eye'" aria-hidden="true"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-text *ngIf="passwordForm.controls['newPassword'].errors && passwordForm.controls['newPassword'].touched"
+          color="danger" class="font-xs m-t--8 m-l-16">Şifre en az 6 karakterden oluşmalıdır.</ion-text>
+        <!-- newPasswordAgain -->
+        <ion-item class="password-input">
+          <ion-input formControlName="newPasswordAgain" label="Yeni Şifre Tekrar" labelPlacement="floating"
+            [type]="showNewPasswordAgain ? 'text' : 'password'"
+            (ionFocus)="onFocusInput(passwordForm,'newPasswordAgain')"
+            (ionBlur)="onBlurInput(passwordForm,'newPasswordAgain')">
+          </ion-input>
+          <ion-button class="btn" fill="clear" slot="end" aria-label="Show/hide"
+            (click)="togglePasswordIcon('newPasswordAgain')">
+            <ion-icon slot="icon-only" [name]="showNewPasswordAgain ? 'eye-off' : 'eye'" aria-hidden="true"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <ion-text
+          *ngIf="passwordForm.controls['newPasswordAgain'].errors && passwordForm.controls['newPasswordAgain'].touched"
+          color="danger" class="font-xs m-t--8 m-l-16">Şifre en az 6 karakterden oluşmalıdır.</ion-text>
+        <ion-button expand="block" type="submit" [disabled]="passwordFormLoading">
+          <ion-spinner *ngIf="passwordFormLoading" name="crescent"></ion-spinner>
+          <ion-text *ngIf="!passwordFormLoading">Kaydet</ion-text>
+        </ion-button>
+      </form>
+    </div>
+  </div>
 
   <!-- Dosya Seçici -->
-  <input type="file" (change)="onFileSelected($event)" hidden #fileInput>
+  <input type="file" (change)="onFileSelected($event)" hidden #fileInput />
 </ion-content>

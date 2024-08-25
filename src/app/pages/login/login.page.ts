@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MaskPredicate, PhoneMask } from 'src/app/helpers/phoneInput.helper';
 import { AuthService } from 'src/app/services/auth.service';
-import { tcnoValidator } from 'src/app/validators/tcno.validator';
+import { TCnoValidator } from 'src/app/validators/TCno.validator';
 
 export enum LoginSegmentTypes {
   login = 'login',
@@ -105,7 +105,7 @@ export class LoginPage implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
     this.registerForm = this.fb.group({
-      identityNumber: ['', [Validators.required, tcnoValidator()]],
+      identityNumber: ['', [Validators.required, TCnoValidator()]],
       phoneNumber: ['', [Validators.required, Validators.minLength(19)]],
     });
     this.username = 'mobiluser';

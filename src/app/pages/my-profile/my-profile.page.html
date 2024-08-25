@@ -11,8 +11,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card (click)="goMyProfile()">
+<ion-content class="ion-padding">
+  <div class="m-b-8" (click)="goMyProfile()">
     <ion-item lines="none" [button]="true">
       <ion-avatar slot="start">
         <img [src]="avatarUrl" alt="Profil Resmi" />
@@ -22,7 +22,7 @@
         <p>{{ email }}</p>
       </ion-label>
     </ion-item>
-  </ion-card>
+  </div>
   <ion-list [inset]="true">
     <ion-item [button]="true">
       <ion-icon name="settings-outline" slot="start"></ion-icon>
