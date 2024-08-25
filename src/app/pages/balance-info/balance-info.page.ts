@@ -7,6 +7,9 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./balance-info.page.scss'],
 })
 export class BalanceInfoPage implements OnInit {
+  balance = 255;
+  cardNumber = '1234 5678 **** ****';
+  cardHolderName = 'Mustafa Dağlılar';
 
   constructor(private router : Router) { }
 

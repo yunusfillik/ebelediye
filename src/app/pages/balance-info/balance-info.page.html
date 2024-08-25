@@ -13,19 +13,18 @@
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        <h2>Mustafa Dağlılar</h2>
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-text>
-        <h3>Kredi Kartı</h3>
-        <p>Bakiye: 1,234.56 ₺</p>
-      </ion-text>
-    </ion-card-content>
-  </ion-card>
+  <div class="m-l-16 m-r-16 m-b-16">
+    <div class="card">
+      <div class="card-number">{{ cardNumber }}</div>
+      <div class="card-info">
+        <div class="card-name">{{ cardHolderName }}</div>
+        <div class="card-balance">
+          <ion-icon name="cash"></ion-icon>
+          {{ balance | number:'1.2-2' }}
+        </div>
+      </div>
+    </div>
+  </div>
 
   <ion-item-divider>
     <ion-label>
