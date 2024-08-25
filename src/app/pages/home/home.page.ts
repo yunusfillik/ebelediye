@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { register } from 'swiper/element/bundle';
-import SwiperCore, { Swiper } from 'swiper';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-register();
 
 @Component({
   selector: 'app-home',
@@ -11,8 +8,13 @@ register();
 })
 export class HomePage {
 
+  banners = [
+    {id: 1, img: 'assets/images/banner/anasayfa-banner-1.jpg'},
+    {id: 2, img: 'assets/images/banner/anasayfa-banner-2.jpg'},
+    {id: 3, img: 'assets/images/banner/anasayfa-banner-3.jpg'}
+  ]
   constructor(private router: Router) { }
-  
+
   ngOnInit() {
   }
 
@@ -32,24 +34,11 @@ export class HomePage {
   }
 
   goToCampaignDetail(id : any) : void {
-    this.router.navigateByUrl('/campaign-detail/'+id); 
+    this.router.navigateByUrl('/campaign-detail/'+id);
   }
 
   goToStoreDetail(id : any) : void {
-    this.router.navigateByUrl('/store-detail/'+id); 
-  }
-
-  async onSlideClick(id: number) {
-    try {
-      // Servise request gönder
-      //const data = await this.http.get(`your-api-endpoint/${id}`).toPromise();
-
-      // Yeni sayfayı aç
-      //this.router.navigate(['/my-page'], { state: { data } });
-      this.router.navigateByUrl('/banner-detail/'+id); 
-    } catch (error) {
-      console.error('Error fetching data', error);
-    }
+    this.router.navigateByUrl('/store-detail/'+id);
   }
 
   async onCityGuideClick() {
@@ -58,6 +47,10 @@ export class HomePage {
     } catch (error) {
       console.error('Error fetching data', error);
     }
+  }
+
+  onSliderClick(e: any){
+    console.log(e)
   }
 
 }

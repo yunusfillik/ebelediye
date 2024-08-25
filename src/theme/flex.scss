@@ -44,6 +44,12 @@
   justify-content: space-between;
 }
 
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .flex-around {
   display: flex;
   justify-content: space-around;

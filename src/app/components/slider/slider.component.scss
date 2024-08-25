@@ -1,0 +1,18 @@
+:host{
+  display: block;
+}
+
+swiper-container:has(.slide-beta),
+swiper-container:has(.slide-gama) {
+  padding: 0 16px;
+  padding-bottom: 16px;
+  &::part(container) {
+    overflow: visible;
+  }
+  &::part(pagination) {
+    bottom: -20px;
+  }
+  ::ng-deep .slider-content img {
+    border-radius: 8px;
+  }
+}

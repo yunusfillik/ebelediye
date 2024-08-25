@@ -1,0 +1,13 @@
+<div class="flex-center-between p-lr-16 m-b-8" *ngIf="header">
+  <ion-text color="warning">{{header}}</ion-text>
+  <div class="flex-center-between gap-4" (click)="handleAllButtonClick()">
+    <ion-text color="success" class="font-xs">Tümü</ion-text>
+    <ion-icon name="arrow-forward-outline" size="x-small" color="success"></ion-icon>
+  </div>
+</div>
+
+<swiper-container #swiper class="swiper-container" [pagination]="config.pagination" [slidesPerView]="config.slidesPerView" [spaceBetween]="10" [freeMode]="config.freeMode">
+  <swiper-slide *ngFor="let option of options" [class]="type !== 'alpha' ? 'slide-'+type: ''">
+    <ng-container *ngTemplateOutlet="option.template"></ng-container>
+  </swiper-slide>
+</swiper-container>
