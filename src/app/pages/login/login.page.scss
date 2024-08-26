@@ -1,7 +1,43 @@
-.logo-area{
+.logo-area {
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  height: 150px;
+  margin: 64px 0;
+  .logo {
+    width: 100%;
+    height: inherit;
+    background-image: url("/assets/icon/logo-dark.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+.footer-logo-area {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  .footer-logo {
+    width: 100%;
+    height: inherit;
+    background-image: url("/assets/icon/card-dark.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo-area {
+    .logo {
+      background-image: url("/assets/icon/logo-white.svg") !important;
+    }
+  }
+  .footer-logo-area{
+    .footer-logo {
+      background-image: url("/assets/icon/card-white.svg");
+    }
+  }
 }

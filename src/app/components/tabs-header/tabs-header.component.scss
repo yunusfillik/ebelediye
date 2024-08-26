@@ -1,0 +1,22 @@
+.logo-area {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .logo {
+    width: 72px;
+    height: inherit;
+    background-image: url("../../../assets/icon/logo-dark.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo-area {
+    .logo {
+      background-image: url("../../../assets/icon/logo-white.svg") !important;
+    }
+  }
+}

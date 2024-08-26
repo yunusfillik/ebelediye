@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="logo-area">
-    <img src="assets/icon/aliagabldlogo.png" height="56" alt="Aliaga" />
+    <ion-icon class="logo"></ion-icon>
   </div>
   <!-- Segments -->
   <ion-segment [(ngModel)]="segment" class="m-b-16">
@@ -14,56 +14,25 @@
   <div [ngSwitch]="segment">
     <!-- Login -->
     <div *ngSwitchCase="getLoginSegmentTypes().login">
-      <form
-        [formGroup]="loginForm"
-        (ngSubmit)="onLoginSubmit()"
-        class="flex-col gap-16"
-      >
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="flex-col gap-16">
         <ion-item>
-          <ion-input
-            formControlName="username"
-            label="Kullanıcı adı"
-            labelPlacement="floating"
-            (ionFocus)="onFocusInput(loginForm,'username')"
-          ></ion-input>
+          <ion-input formControlName="username" label="Kullanıcı adı" labelPlacement="floating"
+            (ionFocus)="onFocusInput(loginForm,'username')"></ion-input>
         </ion-item>
-        <ion-text
-          *ngIf="loginForm.controls['username'].errors && loginForm.controls['username'].touched"
-          color="danger"
-          class="font-xs m-t--8 m-l-16"
-          >Geçerli bir kullanıcı adı girmelisiniz.</ion-text
-        >
+        <ion-text *ngIf="loginForm.controls['username'].errors && loginForm.controls['username'].touched" color="danger"
+          class="font-xs m-t--8 m-l-16">Geçerli bir kullanıcı adı girmelisiniz.</ion-text>
         <ion-item class="password-input">
-          <ion-input
-            formControlName="password"
-            label="Şifre"
-            labelPlacement="floating"
-            [type]="showPassword ? 'text' : 'password'"
-            (ionFocus)="onFocusInput(loginForm,'password')"
-          >
+          <ion-input formControlName="password" label="Şifre" labelPlacement="floating"
+            [type]="showPassword ? 'text' : 'password'" (ionFocus)="onFocusInput(loginForm,'password')">
           </ion-input>
 
-          <ion-button
-            class="btn"
-            fill="clear"
-            slot="end"
-            aria-label="Show/hide"
-            (click)="togglePassword()"
-          >
-            <ion-icon
-              slot="icon-only"
-              [name]="showPassword ? 'eye-off' : 'eye'"
-              aria-hidden="true"
-            ></ion-icon>
+          <ion-button class="btn" fill="clear" slot="end" aria-label="Show/hide" (click)="togglePassword()">
+            <ion-icon slot="icon-only" [name]="showPassword ? 'eye-off' : 'eye'" aria-hidden="true"></ion-icon>
           </ion-button>
         </ion-item>
-        <ion-text
-          *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched"
-          color="danger"
-          class="font-xs m-t--8 m-l-16"
-          >Şifre en az 6 karakterden oluşmalıdır.</ion-text
-        >
-        <ion-text color="secondary">Şifremi unuttum</ion-text>
+        <ion-text *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched" color="danger"
+          class="font-xs m-t--8 m-l-16">Şifre en az 6 karakterden oluşmalıdır.</ion-text>
+        <ion-text>Şifremi unuttum</ion-text>
         <ion-button expand="block" type="submit" [disabled]="loginLoading">
           <ion-spinner *ngIf="loginLoading" name="crescent"></ion-spinner>
           <ion-text *ngIf="!loginLoading">Giriş yap</ion-text>
@@ -72,57 +41,31 @@
     </div>
     <!-- Register -->
     <div *ngSwitchCase="getLoginSegmentTypes().register">
-      <form
-        [formGroup]="registerForm"
-        (ngSubmit)="onRegisterSubmit()"
-        class="flex-col gap-16"
-      >
+      <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()" class="flex-col gap-16">
         <ion-item>
-          <ion-input
-            formControlName="identityNumber"
-            label="TC kimlik numarası"
-            labelPlacement="floating"
-            type="tel"
-            maxlength="11"
-            (ionFocus)="onFocusInput(registerForm,'identityNumber')"
-          ></ion-input>
+          <ion-input formControlName="identityNumber" label="TC kimlik numarası" labelPlacement="floating" type="tel"
+            maxlength="11" (ionFocus)="onFocusInput(registerForm,'identityNumber')"></ion-input>
         </ion-item>
         <ion-text
           *ngIf="registerForm.controls['identityNumber'].errors && registerForm.controls['identityNumber'].touched"
-          color="danger"
-          class="font-xs m-t--8 m-l-16"
-          >Geçerli bir TC kimlik numarası girmelisiniz.</ion-text
-        >
+          color="danger" class="font-xs m-t--8 m-l-16">Geçerli bir TC kimlik numarası girmelisiniz.</ion-text>
         <ion-item>
-          <ion-input
-            formControlName="phoneNumber"
-            label="Telefon numarası"
-            labelPlacement="floating"
-            type="tel"
-            placeholder="+90 (5xx)"
-            [maskito]="phoneMask"
-            [maskitoElement]="maskPredicate"
+          <ion-input formControlName="phoneNumber" label="Telefon numarası" labelPlacement="floating" type="tel"
+            placeholder="+90 (5xx)" [maskito]="phoneMask" [maskitoElement]="maskPredicate"
             (ionFocus)="onFocusInput(registerForm,'phoneNumber')"
-            (ionBlur)="onBlurInput(registerForm,'phoneNumber')"
-          ></ion-input>
+            (ionBlur)="onBlurInput(registerForm,'phoneNumber')"></ion-input>
         </ion-item>
-        <ion-text
-          *ngIf="registerForm.controls['phoneNumber'].errors && registerForm.controls['phoneNumber'].touched"
-          color="danger"
-          class="font-xs m-t--8 m-l-16"
-          >Geçerli bir telefon numarası girmelisiniz.</ion-text
-        >
+        <ion-text *ngIf="registerForm.controls['phoneNumber'].errors && registerForm.controls['phoneNumber'].touched"
+          color="danger" class="font-xs m-t--8 m-l-16">Geçerli bir telefon numarası girmelisiniz.</ion-text>
         <ion-button expand="block" type="submit" [disabled]="registerLoading">
           <ion-spinner *ngIf="registerLoading" name="crescent"></ion-spinner>
           <ion-text *ngIf="!registerLoading">Devam et</ion-text>
         </ion-button>
         <ion-text color="medium" class="font-xs">
           Kişisel verileriniz,<strong role="presentation">
-            Aydınlatma Metni </strong
-          >kapsamında işlenmektedir. “Devam et” veya “Sosyal Hesap”
+            Aydınlatma Metni </strong>kapsamında işlenmektedir. “Devam et” veya “Sosyal Hesap”
           butonlarından birine basarak<strong role="presentation">
-            Üyelik Sözleşmesi</strong
-          >’ni ve<strong role="presentation"> Gizlilik Politikası</strong>’nı
+            Üyelik Sözleşmesi</strong>’ni ve<strong role="presentation"> Gizlilik Politikası</strong>’nı
           okuduğunuzu ve kabul ettiğinizi onaylıyorsunuz.
         </ion-text>
       </form>
@@ -130,8 +73,11 @@
   </div>
 </ion-content>
 
-<ion-footer mode='ios' >
+<ion-footer mode='ios'>
   <ion-toolbar class="t-a-c">
-    <ion-text>Aliağa Belediyesi tüm hakları saklıdır.</ion-text>
+    <div class="footer-logo-area">
+      <ion-icon class="footer-logo"></ion-icon>
+    </div>
+    <ion-text color="medium">Aliağa Belediyesi tüm hakları saklıdır.</ion-text>
   </ion-toolbar>
 </ion-footer>

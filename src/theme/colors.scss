@@ -2,4 +2,65 @@
 :root {
   --ion-background-color: #ffffff;
 
+  --ion-color-primary: #E5346B;
+  --ion-color-secondary: #34E5B6;
+  --ion-color-tertiary: #E5A534;
+  --ion-color-success: #34E557;
+  --ion-color-warning: #E5BE34;
+  --ion-color-danger: #D92323;
+  --ion-color-light: #F2F2F2;
+  --ion-color-medium: #989aa2;
+  --ion-color-dark: #333333;
+}
+// :root {
+//   --ion-color-primary: #3880ff;
+//   --ion-color-secondary: #0cd1e8;
+//   --ion-color-tertiary: #7044ff;
+//   --ion-color-success: #10dc60;
+//   --ion-color-warning: #ffce00;
+//   --ion-color-danger: #f04141;
+//   --ion-color-light: #f4f5f8;
+//   --ion-color-medium: #989aa2;
+//   --ion-color-dark: #222428;
+// }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-color-primary: #e5316b; /* Dark Mode Primary Color */
+    --ion-color-secondary: #9C6BFF; /* Dark Mode Secondary Color */
+    --ion-color-tertiary: #FFBB63; /* Dark Mode Tertiary Color */
+    --ion-color-success: #4EFF7F; /* Dark Mode Success Color */
+    --ion-color-warning: #FFC063; /* Dark Mode Warning Color */
+    --ion-color-danger: #FF4D4D; /* Dark Mode Danger Color */
+    --ion-color-light: #1C1C1E; /* Dark Mode Light Color */
+    --ion-color-medium: #2C2C2E; /* Dark Mode Medium Color */
+    --ion-color-dark: #F2F2F2; /* Dark Mode Dark Color */
+
+    /**
+    * IONIC DEFAULT COLORS
+    */
+    --ion-color-primary-contrast: #ECECEC !important;
+    --ion-color-contrast: #ECECEC !important;
+    --ion-background-color: #363636 !important; /* Biraz daha açık siyah */
+    --ion-item-background: #363636 !important;
+    --ion-item-border-color: #7e7e7e !important;
+    --ion-background-color-rgb: 30, 30, 30 !important;
+    --ion-text-color: #ECECEC !important;
+    --ion-text-color-rgb: 242, 242, 242 !important;
+    --ion-color-primary: #B82A5D !important; /* Dark Mode Primary Color */
+    --ion-color-secondary: #9C6BFF !important; /* Dark Mode Secondary Color */
+    --ion-color-tertiary: #FFBB63 !important; /* Dark Mode Tertiary Color */
+    --ion-color-success: #4EFF7F !important; /* Dark Mode Success Color */
+    --ion-color-warning: #FFC063 !important; /* Dark Mode Warning Color */
+    --ion-color-danger: #ff4d4d !important; /* Dark Mode Danger Color */
+    --ion-color-light: #2C2C2E !important; /* Biraz daha koyu Light Color */
+    --ion-color-medium: #a0a0a0 !important; /* Orta tonlu gri */
+    --ion-color-dark: #ECECEC !important; /* Dark Mode Dark Color */
+
+    --swiper-pagination-bullet-inactive-color: #8d8d8d !important;
+
+  }
+
+  img {
+    filter: brightness(0.8) contrast(1) saturate(1); /* Parlaklık, kontrast ve doygunluk ayarları */
+  }
 }

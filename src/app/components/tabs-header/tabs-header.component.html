@@ -1,15 +1,14 @@
-<ion-header mode='ios' >
+<ion-header mode='ios'>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <img src="assets/icon/aliagabldlogo.png" alt="Aliaga Bld" routerLink="/tabs"/>
+      <div class="logo-area">
+        <ion-icon class="logo" routerLink="/tabs"></ion-icon>
+      </div>
     </ion-buttons>
 
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/my-profile']" routerDirection="forward">
-        <ion-icon
-          slot="icon-only"
-          name="person-circle-outline"
-        ></ion-icon>
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>

@@ -13,7 +13,7 @@
 
 <ion-content class="ion-padding">
   <div class="m-b-8" (click)="goMyProfile()">
-    <ion-item lines="none" [button]="true">
+    <ion-item lines="none" [button]="true" mode="ios">
       <ion-avatar slot="start">
         <img [src]="avatarUrl" alt="Profil Resmi" />
       </ion-avatar>
@@ -23,7 +23,7 @@
       </ion-label>
     </ion-item>
   </div>
-  <ion-list [inset]="true">
+  <ion-list [inset]="true" mode="ios">
     <ion-item [button]="true">
       <ion-icon name="settings-outline" slot="start"></ion-icon>
       <ion-label>Ayarlar</ion-label>
