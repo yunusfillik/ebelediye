@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () => import('../pages/qr-generator/qr-generator.module').then( m => m.QrGeneratorPageModule)
       },
       {
-        path: 'load-money',
-        loadChildren: () => import('../pages/load-money/load-money.module').then(m => m.LoadMoneyPageModule)
+        path: 'balance-info',
+        loadChildren: () => import('../pages/balance-info/balance-info.module').then( m => m.BalanceInfoPageModule)
       },
       {
         path: '',

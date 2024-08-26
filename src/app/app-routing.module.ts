@@ -37,10 +37,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/city-guide/city-guide.module').then( m => m.CityGuidePageModule)
   },
   {
-    path: 'balance-info',
-    loadChildren: () => import('./pages/balance-info/balance-info.module').then( m => m.BalanceInfoPageModule)
-  },
-  {
     path: 'my-account',
     loadChildren: () => import('./pages/my-account/my-account.module').then( m => m.MyAccountPageModule)
   },

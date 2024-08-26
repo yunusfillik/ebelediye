@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { BalanceInfoPageRoutingModule } from './balance-info-routing.module';
 
 import { BalanceInfoPage } from './balance-info.page';
+import { SharedModule } from 'src/app/components/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BalanceInfoPageRoutingModule
+    BalanceInfoPageRoutingModule,
+    SharedModule
   ],
   declarations: [BalanceInfoPage]
 })

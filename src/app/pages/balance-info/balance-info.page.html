@@ -1,15 +1,7 @@
-
-<ion-header mode='ios' >
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button text="" icon="arrow-back-outline" defaultHref="/my-profile"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Bakiye Bilgileri</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-tabs-header></app-tabs-header>
 
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -131,9 +123,8 @@
         </ion-label>
       </div>
     </div>
-    
-  </ion-list>
-  
-  
-</ion-content>
 
+  </ion-list>
+
+
+</ion-content>

@@ -7,12 +7,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicStorageModule } from '@ionic/storage-angular';
-import { register } from 'swiper/element/bundle';
 import { QRCodeModule } from 'angularx-qrcode';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './interceptors/auth.interceptor';
-
-register();
 
 @NgModule({
   declarations: [AppComponent],
