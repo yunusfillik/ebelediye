@@ -59,6 +59,18 @@ const routes: Routes = [
   {
     path: 'scan-qr',
     loadChildren: () => import('./pages/scan-qr/scan-qr.module').then( m => m.ScanQrPageModule)
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'aggrement-contents',
+    loadChildren: () => import('./pages/aggrement-contents/aggrement-contents.module').then( m => m.AggrementContentsPageModule)
+  },
+  {
+    path: 'otp',
+    loadChildren: () => import('./pages/otp/otp.module').then( m => m.OtpPageModule)
   }
 ];
 @NgModule({

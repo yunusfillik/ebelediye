@@ -1,17 +1,30 @@
-ion-header{
+ion-header {
   box-shadow: none !important;
-  ion-toolbar{
+  ion-toolbar {
     --background: var(--ion-background-color) !important;
     // --border-width: 0 !important;
     // --padding-bottom: 0;
     // --padding-end: 0;
     // --padding-start: 0;
     // --padding-top: 0;
-    img{
+    img {
       max-height: 36px;
     }
   }
-  ion-button, ion-icon, ion-back-button{
+  ion-button,
+  ion-icon,
+  ion-back-button {
     color: var(--ion-color-medium);
+  }
+}
+
+.radius-header{
+  --border-radius: 20px 20px 0 0;
+  ion-header{
+    ion-toolbar{
+      ion-title{
+        --padding-top: 8px
+      }
+    }
   }
 }

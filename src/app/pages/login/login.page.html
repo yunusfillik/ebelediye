@@ -32,7 +32,7 @@
         </ion-item>
         <ion-text *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched" color="danger"
           class="font-xs m-t--8 m-l-16">Şifre en az 6 karakterden oluşmalıdır.</ion-text>
-        <ion-text>Şifremi unuttum</ion-text>
+        <ion-text routerLink="/forgot-password">Şifremi unuttum</ion-text>
         <ion-button expand="block" type="submit" [disabled]="loginLoading">
           <ion-spinner *ngIf="loginLoading" name="crescent"></ion-spinner>
           <ion-text *ngIf="!loginLoading">Giriş yap</ion-text>
@@ -62,10 +62,11 @@
           <ion-text *ngIf="!registerLoading">Devam et</ion-text>
         </ion-button>
         <ion-text color="medium" class="font-xs">
-          Kişisel verileriniz,<strong role="presentation">
+          Kişisel verileriniz,<strong role="presentation" (click)="openAggrementsModal('KVKKClarification')">
             Aydınlatma Metni </strong>kapsamında işlenmektedir. “Devam et” veya “Sosyal Hesap”
-          butonlarından birine basarak<strong role="presentation">
-            Üyelik Sözleşmesi</strong>’ni ve<strong role="presentation"> Gizlilik Politikası</strong>’nı
+          butonlarından birine basarak<strong role="presentation" (click)="openAggrementsModal('MembershipAggrement')">
+            Üyelik Sözleşmesi</strong>’ni ve<strong role="presentation" (click)="openAggrementsModal('PrivacyPolicy')">
+            Gizlilik Politikası</strong>’nı
           okuduğunuzu ve kabul ettiğinizi onaylıyorsunuz.
         </ion-text>
       </form>
@@ -74,7 +75,7 @@
 </ion-content>
 
 <ion-footer mode='ios'>
-  <ion-toolbar class="t-a-c">
+  <ion-toolbar class="t-a-c p-b-12">
     <div class="footer-logo-area">
       <ion-icon class="footer-logo"></ion-icon>
     </div>

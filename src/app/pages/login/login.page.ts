@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { MaskPredicate, PhoneMask } from 'src/app/helpers/phoneInput.helper';
 import { AuthService } from 'src/app/services/auth.service';
-import { TCnoValidator } from 'src/app/validators/TCno.validator';
+import { TCnoValidator } from 'src/app/validators/tcno.validator';
+import { AggrementContentsPage, AggrementTypes } from '../aggrement-contents/aggrement-contents.page';
+import { OtpPage } from '../otp/otp.page';
 
 export enum LoginSegmentTypes {
   login = 'login',
@@ -98,7 +101,8 @@ export class LoginPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private modalCtrl: ModalController
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -112,7 +116,7 @@ export class LoginPage implements OnInit {
     this.password = '12345Aa...';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   /**
    * this.loginForm.markAllAsTouched();
@@ -134,6 +138,7 @@ export class LoginPage implements OnInit {
    * Bu sayede error textler ekranda gösterilir.
    */
   onRegisterSubmit() {
+    this.openOTPModal();
     this.registerLoading = true;
     setTimeout(() => {
       this.registerLoading = false;
@@ -142,6 +147,46 @@ export class LoginPage implements OnInit {
       console.log('Form Submitted!', this.registerForm.value);
     } else {
       this.registerForm.markAllAsTouched();
+    }
+  }
+
+  async openAggrementsModal(type: AggrementTypes) {
+    const modal = await this.modalCtrl.create({
+      component: AggrementContentsPage,
+      componentProps: {
+        type
+      },
+      initialBreakpoint: 0.5,
+      breakpoints: [0, 0.5, 1],
+      backdropBreakpoint: 0,
+      cssClass: 'radius-header'
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      // this.message = `Hello, ${data}!`;
+    }
+  }
+
+  async openOTPModal() {
+    const modal = await this.modalCtrl.create({
+      component: OtpPage,
+      componentProps: {
+
+      },
+      initialBreakpoint: 1,
+      breakpoints: [0, 1],
+      backdropBreakpoint: 0,
+      cssClass: 'radius-header'
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      // this.message = `Hello, ${data}!`;
     }
   }
 }

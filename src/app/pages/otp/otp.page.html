@@ -1,0 +1,16 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-title>OTP</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name="close-outline" (click)="dismiss()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="otp-container">
+    <ion-input mode="ios" *ngFor="let digit of digits; let i = index" #otpInput maxlength="1" class="otp-input"
+      type="tel" inputmode="numeric" [id]="'otp-' + i" [(ngModel)]="otp[i]" (input)="onInput($event, i)"
+      (keydown)="onKeyDown($event, i)" (paste)="onPaste($event)"></ion-input>
+  </div>
+</ion-content>

@@ -5,7 +5,7 @@ import { MaskPredicate, PhoneMask } from 'src/app/helpers/phoneInput.helper';
 import { ToastHelper } from 'src/app/helpers/toast.helper';
 import { EmailValidator } from 'src/app/validators/Email.validator';
 import { PasswordMatchValidator } from 'src/app/validators/PasswordsMatch.validator';
-import { TCnoValidator } from 'src/app/validators/TCno.validator';
+import { TCnoValidator } from 'src/app/validators/tcno.validator';
 
 export enum MyAccountSegmentTypes {
   general = 'general',

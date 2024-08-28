@@ -46,3 +46,10 @@
 .p-tb-16 { padding-top: 16px !important; padding-bottom: 16px !important; }
 .p-tb-24 { padding-top: 24px !important; padding-bottom: 24px !important; }
 .p-tb-32 { padding-top: 32px !important; padding-bottom: 32px !important; }
+
+/* Shadow Parts */
+ion-toolbar {
+  &.p-b-12 {
+    --padding-bottom: 12px;
+  }
+}
