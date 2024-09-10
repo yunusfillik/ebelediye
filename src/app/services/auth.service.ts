@@ -28,24 +28,41 @@ export interface LoginResponse {
 })
 export class AuthService {
   private url = environment.authServerURL + 'connect/token';
-  private token: string;
-  private logedUsername: string;
-  private logedPassword: string;
+  private _token: string;
+  private _logedUsername: string;
+  private _logedPassword: string;
   constructor(
     private http: HttpClient,
     private storageService: StorageService
-  ) {}
+  ) { }
 
-  getToken(): string {
-    return this.token;
+  get token() {
+    return this._token;
   }
 
-  getLogedUsername(): string {
-    return this.logedUsername;
+  set token(value: string) {
+    this._token = value;
   }
 
-  getLogedPassword(): string {
-    return this.logedPassword;
+  get logedUsername() {
+    return this._logedUsername;
+  }
+
+  set logedUsername(value: string) {
+    this._logedUsername = value;
+  }
+
+  get logedPassword() {
+    return this._logedPassword;
+  }
+
+  set logedPassword(value: string) {
+    this._logedPassword = value;
+  }
+
+  reset() {
+    this.storageService.clear();
+    this.token = '';
   }
 
   async login(username: string, password: string): Promise<LoginResponse> {
@@ -87,11 +104,6 @@ export class AuthService {
     const userData = { username: data.username, password: data.password };
     this.storageService.set(StorageKeys.LOGGED_USER, JSON.stringify(userData));
     this.storageService.set(StorageKeys.AUTH_TOKEN, this.token);
-  }
-
-  clearTokenAndStorage() {
-    this.storageService.clear();
-    this.token = '';
   }
 
   private handleSuccess<T>(data: any) {

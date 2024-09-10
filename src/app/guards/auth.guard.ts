@@ -16,13 +16,17 @@ export class AuthGuard implements CanActivate {
   storageService = inject(StorageService);
   authService = inject(AuthService);
   router = inject(Router);
-  constructor() {}
+  constructor() { }
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const token = this.authService.getToken();
+    const token = this.authService.token;
     if (token) return true;
     await this.storageService.init();
     const loggedUser = await this.storageService.get(StorageKeys.LOGGED_USER);
-    if (loggedUser) return true;
+    if (loggedUser) {
+      const authToken = await this.storageService.get(StorageKeys.AUTH_TOKEN);
+      this.authService.token = authToken;
+      return true;
+    }
     this.router.navigate(['login']);
     return false;
   }

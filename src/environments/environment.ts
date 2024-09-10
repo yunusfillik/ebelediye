@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: '',
+  apiURL: 'https://belediyeloyaltyservices.dabto.com/api/',
   authServerURL: 'https://dabid.dabto.com/',
   authServerClientID: 'belediyemobileapp',
   authServerScope: 'openid email profile roles skoruba_identity_admin_api'

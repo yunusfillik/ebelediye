@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -18,7 +19,7 @@ export class MyProfilePage implements OnInit {
   phone: string = "+90 555 555 5555";
   address: string = "İzmir, Türkiye";
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -65,8 +66,9 @@ export class MyProfilePage implements OnInit {
   }
 
   async signOut() {
-    this.authService.clearTokenAndStorage();
-    this.router.navigate(['/login']);
+    this.authService.reset();
+    this.userService.reset();
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 
 }

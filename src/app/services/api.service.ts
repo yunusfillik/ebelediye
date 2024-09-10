@@ -13,7 +13,7 @@ export class ApiService {
 
   async get<T>(endpoint: string, params?: any): Promise<T> {
     return firstValueFrom(
-      this.http.get<T>(`${this.apiUrl}/${endpoint}`, { params })
+      this.http.get<T>(`${this.apiUrl}${endpoint}`, { params })
         .pipe(
           catchError((err: HttpErrorResponse ) => this.handleError(err))
         )
@@ -22,7 +22,7 @@ export class ApiService {
 
   async post<T>(endpoint: string, data: any): Promise<T> {
     return firstValueFrom(
-      this.http.post<T>(`${this.apiUrl}/${endpoint}`, data)
+      this.http.post<T>(`${this.apiUrl}${endpoint}`, data)
         .pipe(
           catchError((err: HttpErrorResponse ) => this.handleError(err))
         )
@@ -31,7 +31,7 @@ export class ApiService {
 
   async put<T>(endpoint: string, data: any): Promise<T> {
     return firstValueFrom(
-      this.http.put<T>(`${this.apiUrl}/${endpoint}`, data)
+      this.http.put<T>(`${this.apiUrl}${endpoint}`, data)
         .pipe(
           catchError((err: HttpErrorResponse ) => this.handleError(err))
         )
@@ -40,7 +40,7 @@ export class ApiService {
 
   async delete<T>(endpoint: string): Promise<T> {
     return firstValueFrom(
-      this.http.delete<T>(`${this.apiUrl}/${endpoint}`)
+      this.http.delete<T>(`${this.apiUrl}${endpoint}`)
         .pipe(
           catchError((err: HttpErrorResponse ) => this.handleError(err))
         )
@@ -50,6 +50,7 @@ export class ApiService {
 
   private handleError(error: HttpErrorResponse) {
     //TODO
+    console.log(error)
     const customErrorResponse = {
       success: false,
       message: this.getErrorMessage(error)

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,36 +10,42 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   banners = [
-    {id: 1, img: 'assets/images/banner/anasayfa-banner-1.jpg'},
-    {id: 2, img: 'assets/images/banner/anasayfa-banner-2.jpg'},
-    {id: 3, img: 'assets/images/banner/anasayfa-banner-3.jpg'}
+    { id: 1, img: 'assets/images/banner/anasayfa-banner-1.jpg' },
+    { id: 2, img: 'assets/images/banner/anasayfa-banner-2.jpg' },
+    { id: 3, img: 'assets/images/banner/anasayfa-banner-3.jpg' }
   ]
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) {
+    this.getUserId();
+  }
 
   ngOnInit() {
   }
 
-  handleRefresh(event : any) {
+  async getUserId() {
+    await this.userService.get();
+  }
+
+  handleRefresh(event: any) {
     setTimeout(() => {
       // Any calls to load data go here
       event.target.complete();
     }, 2000);
   }
 
-  goToStoresPage(){
+  goToStoresPage() {
     this.router.navigate(['/stores']);
   }
 
-  goToCampaignsPage(){
+  goToCampaignsPage() {
     this.router.navigate(['/campaigns']);
   }
 
-  goToCampaignDetail(id : any) : void {
-    this.router.navigateByUrl('/campaign-detail/'+id);
+  goToCampaignDetail(id: any): void {
+    this.router.navigateByUrl('/campaign-detail/' + id);
   }
 
-  goToStoreDetail(id : any) : void {
-    this.router.navigateByUrl('/store-detail/'+id);
+  goToStoreDetail(id: any): void {
+    this.router.navigateByUrl('/store-detail/' + id);
   }
 
   async onCityGuideClick() {
@@ -49,7 +56,7 @@ export class HomePage {
     }
   }
 
-  onSliderClick(e: any){
+  onSliderClick(e: any) {
     console.log(e)
   }
 
